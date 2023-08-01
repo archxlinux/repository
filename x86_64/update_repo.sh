@@ -1,8 +1,8 @@
 #!/bin/bash
 
-rm local_repo*
+rm -f archx_repo*
 
 echo "repo-add"
-repo-add -n -R local_repo.db.tar.gz *.pkg.tar.zst
+repo-add -n -R archx_repo.db.tar.gz *.pkg.tar.zst
 
 echo "Repository Updated"
