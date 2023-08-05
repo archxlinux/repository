@@ -1,0 +1,18 @@
+kind: pipeline
+name: build and publish
+steps:
+  - name: build
+    privileged: true
+    commands:
+      - cd x86_64 && bash build.sh
+  - name: push commit
+    image: appleboy/drone-git-push
+    settings:
+      author_name: "Drone"
+      author_email: drone@archxlinux.org
+      ssh_key:
+        from_secret: key
+      branch: master
+      remote: git@github.com:archxlinux/pkgbuild.git
+      force: false
+      commit: true
