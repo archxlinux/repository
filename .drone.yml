@@ -3,6 +3,7 @@ name: build and publish
 steps:
   - name: build
     privileged: true
+    image: bash
     commands:
       - cd x86_64 && bash build.sh
   - name: push commit
